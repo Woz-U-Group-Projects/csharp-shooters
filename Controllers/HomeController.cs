@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ValkyrieIMS.Models;
+using Microsoft.EntityFrameworkCore;
+using SecFromScratch.Models;
 
 namespace ValkyrieIMS.Controllers
 {
@@ -14,15 +16,8 @@ namespace ValkyrieIMS.Controllers
         {
             return View();
         }
+
         public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult Login()
-        {
-            return View();
-        }
-        public IActionResult Inventory()
         {
             return View();
         }
@@ -32,5 +27,26 @@ namespace ValkyrieIMS.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(User user) {
+            if (ModelState.IsValid) {
+
+                _context.Add(user);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Welcome));
+            }
+            return View(user);
+        }
+
+        public IActionResult Welcome() {
+            return View();
+        }
+
+        public ViewResult Login() {
+            return View();
+        }
+
+
     }
 }

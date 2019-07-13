@@ -1,8 +1,24 @@
-﻿@{
+﻿@model SecFromScratch.User
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Valkyrie IMS</h1>
+    <p>The host of your inventory needs.</p>
 </div>
+<h1>Create a New User</h1>
+
+<form asp-controller="Home" asp-action="Create" method="POST">
+    <div>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+    </div>
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+</form>
