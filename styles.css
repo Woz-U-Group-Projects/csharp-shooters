@@ -1,0 +1,39 @@
+.text-danger {
+    color: red;
+};
+h1 {
+    text-align: center;
+    size: 20px;
+
+};
+h4 {
+    text-align: left;
+    size: 18px;
+};
+header {
+    background-color: gold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-size-adjust: 28px;
+    color: white;
+}
+body {
+    color: black;
+    font: 1em sans-serif;
+    size: 14px;
+    background-color: white;
+}
+.navbar {
+    color: green;
+    background-color: grey;
+    border: 1px, white;
+}
+
+.hover {
+    color: goldenrod;
+
+}
+
+.onClick {
+    color: purple;
+}
+
